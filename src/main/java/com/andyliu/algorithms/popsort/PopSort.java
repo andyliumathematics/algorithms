@@ -8,15 +8,14 @@ public class PopSort {
             System.out.println(arr[i]);
         }
         //冒泡排序
-        for (int bottompos = arr.length; bottompos >= 0; bottompos--) {
-            int minpos = bottompos;
-            for (int i = minpos + 1; i < arr.length; i++) {
-                if (arr[minpos] > arr[i])
-                    minpos = i;
+        for (int bottompos = arr.length - 1; bottompos > 0; bottompos--) {
+            for (int i = 0; i < bottompos; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    int tmp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = tmp;
+                }
             }
-            int tmp = arr[bottompos];
-            arr[bottompos] = arr[minpos];
-            arr[minpos] = tmp;
         }
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
